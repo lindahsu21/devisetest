@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Devisetest</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= link_to 'index', root_path %>
+
+<% if current_user %>
+<%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
+<%= link_to '정보수정', edit_user_registration_path %>
+
+<% else %>
+<%= link_to '로그인', user_session_path %>
+<%= link_to '가입', new_user_registration_path %>
+<% end %>
+
+
+<%= yield %>
+
+</body>
+</html>
